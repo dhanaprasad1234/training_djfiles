@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body>
+
+  {% for i in list %}
+    {% if 4 in i %}
+    <h1 class="text-danger">{{ hi  }}</h1>
+    {% else %}
+        {{ bye }}
+       <p class="text-danger">{{ i }}</p>
+    {% endif %}
+    {% endfor %}
+  {% csrf_token %}
+<p>hi</p>
+
+
+</body>
+</html>
