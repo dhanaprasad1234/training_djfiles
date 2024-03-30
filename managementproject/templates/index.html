@@ -16,6 +16,7 @@
           <th>StudentAttendence</th>
         <th>StudentEmail</th>
           <th>StudentContactNO</th>
+          <th>StudentPhoto</th>
           <th>Action</th>
 
       </tr>
@@ -28,7 +29,9 @@
         <td>{{student.student_attendence}}</td>
         <td>{{student.student_Email}}</td>
         <td>{{student.student_contactNo}}</td>
-        <td ><a class="btn btn-danger" href="/schoolapp/edit/{{ student.student_id }}">EDIT</a></td>
+          <td><img src="{{ student.student_photo.url }}"></td>
+        <td ><a class="btn btn-danger" href="/schoolapp/edit/{{ student.student_id }}/">EDIT</a></td>
+          <td><a class="btn btn-danger" href="/schoolapp/delete/{{ student.student_id }}/">DELETE</a></td>
       </tr>
     {% endfor %}
 

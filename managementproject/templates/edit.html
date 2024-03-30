@@ -9,8 +9,9 @@
 
 </head>
 <body>
-{% csrf_token %}
-<form  class="post-form" method="post" >
+
+<form action="/schoolapp/update/{{student.student_id}}/"class="post-form" method="POST" >
+    {% csrf_token %}
     <div class="row">
        <label for='student_name' class="form-label">
             Enter The Student Name
@@ -33,10 +34,10 @@
        <label for='student_contactNo ' class="form-label">
             Enter The ContactNo
         </label>
-        <input type="number" id="student_contactNo " class="form-control" placeholder="Enter The contactnumber" name='student_contactNo ' maxlength="10"  value="{{ student.student_contactNo }}" />
+        <input type="number" id="student_contactNo " class="form-control" placeholder="Enter The contactnumber" name="student_contactNo"  value="{{ student.student_contactNo }}" />
     </div>
 
-        <button type="button"  class="btn btn-success" href="/schoolapp/update/{{ student.student_id }}"  >UPDATE</button>
+        <button type="submit"  class="btn btn-success" >UPDATE</button>
 
 </form>
 </body>

@@ -6,7 +6,9 @@ class Student(models.Model):
     student_name=models.CharField(max_length=225)
     student_attendence=models.IntegerField()
     student_Email=models.CharField(max_length=33)
-    student_contactNo=models.IntegerField()
+    student_contactNo=models.IntegerField(null=False)
+    student_photo=models.ImageField(upload_to='images/')
+    # student_assignment=models.FileField(upload_to='videos/',default='')
     student_description=models.TextField()
     def __str__(self):
         return self.student_name
