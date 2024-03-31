@@ -15,10 +15,16 @@ def saveform(request):
             student_attendence=request.POST.get('student_attendence'),
             student_Email=request.POST.get('student_Email'),
             student_contactNo=request.POST.get('student_contactNo'),
-            student_photo=request.FILES.get('student_photo')
+            Student_gender=request.POST.get('Student_gender'),
+            student_Course = request.POST.get('student_Course')
+
         )
-        print("upload image",student_photo)
+
+        student.student_photo = request.FILES.get('student_photo')
+        student.student_assignment = request.FILES.get('student_assignment')
+        print("upload image",request.FILES.get('student_photo'))
         student.save()
+        return redirect('show')
         # Handle file upload
         # student_photo = request.FILES.get('student_photo')
         # print("upload images ",  student_photo)
@@ -67,10 +73,13 @@ def update(request,student_id):
     print("update")
     if request.method == "POST":
         print("post in update")
-        student.student_name=request.POST.get('student_name')
+        student.student_name = request.POST.get('student_name')
         student.student_attendence=request.POST.get('student_attendence')
+        student.Student_gender = request.POST.get('Student_gender')
+        student.student_Course = request.POST.get('student_Course')
         student.student_Email = request.POST.get('student_Email')
         student.student_contactNo = request.POST.get('student_contactNo')
+        student.student_gender = request.POST.get('student_gender')
         student.student_photo = request.FILES.get('student_photo')
         student.save()
         # print(request.POST.get('student_name'),request.POST.get('student_attendence'),request.POST.get('student_contactNo'),request.POST.get('student_Email'))

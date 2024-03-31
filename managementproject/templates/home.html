@@ -8,7 +8,7 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </head>
 <body>
-<form action="{% url 'saveform' %}"class="post-form" method="POST" enctype="multipart/form-data" >
+<form action="/schoolapp/saveform/" class="post-form" method="POST" enctype="multipart/form-data" >
     {% csrf_token %}
      <div class="row">
        <label for='student_id' class="form-label">
@@ -23,6 +23,25 @@
         <input type="text" id="student_name" class="form-control" placeholder="Enter The Name" name="student_name" value="{{ student.student_name }}" />
     </div>
     <div class="row">
+    <label for="student_Course" class="form-label">
+        Course
+    </label>
+        <select class="form-select" id="student_Course" name="student_Course">
+            <option selected>Open this select menu</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+        </select>
+    </div>
+     <div class="row">
+       <label for="Student_gender" class="form-check-label">
+            Gender
+        </label>
+        <input type="radio" id="Student_gender" class="form-check-input" name="Student_gender"  value="male" />Male
+         <input type="radio" id="Student_gender" class="form-check-input" name="Student_gender"  value="female" />Female
+
+    </div>
+    <div class="row">
+
        <label for='student_attendence' class="form-label">
             Enter The Attendence
         </label>
@@ -40,18 +59,19 @@
         </label>
         <input type="number" id="student_contactNo " class="form-control" placeholder="Enter The contactnumber" name="student_contactNo"  value="{{ student.student_contactNo }}" />
     </div>
+
     <div class="row">
        <label for='student_photo ' class="form-label">
             Enter The Image
         </label>
-        <input type="file" id="student_photo " class="form-control-fileage" name="student_photo"  value="{{ student.student_photo }}" />
+        <input type="file" id="student_photo " class="form-control-file" name="student_photo"   value="{{ student.student_photo.url }}" />
     </div>
-   <!-- <div class="row">
+    <div class="row">
        <label for='student_assignment ' class="form-label">
-            Enter The ContactNo
+            Enter The fileupload
         </label>
-        <input type="file" id="student_assignment" class="form-control"  name="student_assignment"  value="{{ student.student_assignment }}" />
-    </div>-->
+        <input type="file" id="student_assignment" class="form-control-file"  name="student_assignment"  value="{{ student.student_assignment.url }}" />
+    </div>
 
         <button type="submit"  class="btn btn-success" >REGISTER</button>
 <!--<form action="/schoolapp/show/" method="post" >

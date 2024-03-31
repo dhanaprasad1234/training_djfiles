@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form action="/schoolapp/update/{{student.student_id}}/"class="post-form" method="POST" >
+<form action="/schoolapp/update/{{student.student_id}}/" class="post-form" method="POST" enctype="multipart/form-data" >
     {% csrf_token %}
     <div class="row">
        <label for='student_name' class="form-label">
@@ -25,6 +25,22 @@
         <input type="number" id="student_attendence" class="form-control" placeholder="Enter The Attendence" name="student_attendence"  value="{{ student.student_attendence }}" />
     </div>
     <div class="row">
+    <label for="student_Course" class="form-label">
+        Course
+    </label>
+        <select class="form-select" id="student_Course" name="student_Course" />
+            <option value="Java" {% if student.student_Course == 'Java' %} selected {% endif %} />Java</option>
+            <option value="Python" {% if student.student_Course == 'Python' %} selected {% endif %} />Python</option>
+        </select>
+    </div>
+     <div class="row">
+       <label for="Student_gender" class="form-check-label">
+            Gender
+        </label>
+        <input type="radio" id="Student_gender" class="form-check-input" name="Student_gender"  value="male" {% if student.Student_gender == 'male' %} checked {% endif %}>Male
+         <input type="radio" id="Student_gender" class="form-check-input" name="Student_gender"  value="female" {% if student.Student_gender == 'female' %} checked {% endif %}>Female
+     </div>
+    <div class="row">
        <label for='student_Email' class="form-label">
             Enter The Email
         </label>
@@ -36,9 +52,16 @@
         </label>
         <input type="number" id="student_contactNo " class="form-control" placeholder="Enter The contactnumber" name="student_contactNo"  value="{{ student.student_contactNo }}" />
     </div>
+    <div class="row">
+       <label for='student_photo ' class="form-label">
+            Enter The Image
+        </label>
+        <input type="file" id="student_photo " class="form-control-file" name="student_photo"  value="{{ student.student_photo.url }}" />
+    </div>
 
         <button type="submit"  class="btn btn-success" >UPDATE</button>
 
-</form>
+
+ </form>
 </body>
 </html>
